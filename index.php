@@ -8,21 +8,22 @@
 		bloginfo( 'name' ); ?></a></h1>
 		<p><?php bloginfo( 'description' ); ?></p>
 		<img src="<?php bloginfo('stylesheet_directory'); ?>/logo.png alt="Logo" >
-		
+
+		<?php echo ah_get_locationdata(); ?>
 <!-- Gibt es mindestens einen Beitrag? -->
 <?php if ( have_posts() ) : ?>
 
-<!-- Dann nacheinander alle Beiträge ausgeben: -->
+<!-- Dann nacheinander alle Beitraege ausgeben: -->
 <?php while ( have_posts() ) : the_post(); ?>
 
 <!-- Hier den Beitrag anzeigen -->
 <article>
 		<header>
-			 <!-- Seine Überschrift -->
+			 <!-- Seine ueberschrift -->
 			 <h1> <a href="<?php esc_url( the_permalink() ); ?>"><?php the_title(); ?></a> </h1>
 			 <!-- Sein Autor -->
 			 Verfasst von <?php the_author_posts_link(); ?>
-			 <!-- Sein Veröffentlichungsdatum -->
+			 <!-- Sein Veoeffentlichungsdatum -->
 			 am <?php the_date(); ?>
 			 <!-- Die Kategorie des Beitrags -->
 			 <?php the_category(); ?>
@@ -36,5 +37,5 @@
 
  <!-- Sofern es keinen Beitrag gibt, darauf hinweisen: -->
  <?php else : ?>
-  <p>Es gibt keine Beiträge!</p>
+  <p>Es gibt keine Beitraege!</p>
 <?php endif; ?>
